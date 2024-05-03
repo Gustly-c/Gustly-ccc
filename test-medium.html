@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/test-easy_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <title>JavaScript Лёгкий Тест</title>
+    <script>
+      $(document).ready(function(){
+      $.click(function(){
+          // Показываем или скрываем подменю
+          $('.submenu').toggle();
+      });
+  });
+  
+  $(document).ready(function(){
+      // Обработчик события клика по иконке
+      $('.fa-moon').click(function(){
+          // Проверяем текущую тему
+          var currentTheme = $('#theme').attr('href');
+          // Если текущая тема - светлая, переключаем на темную и наоборот
+          if(currentTheme == 'css/test-easy_light.css'){
+              $('#theme').attr('href', 'css/test-easy_dark.css');
+          } else {
+              $('#theme').attr('href', 'css/test-easy_light.css');
+          }
+      });
+  });
+  
+  $(document).ready(function(){
+      $('.fa-bars').click(function(){
+          $('#navbar ul').toggle();
+      });
+  });
+  function processQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            quizForm.onsubmit = function(event) {
+                event.preventDefault();
+                
+                // Считываем ответы пользователя
+                const answers = {
+                    q1: quizForm.q1.value,
+                    q2: quizForm.q2.value,
+                    q3: quizForm.q3.value,
+                    q4: quizForm.q4.value,
+                    q5: quizForm.q5.value,
+                    q6: quizForm.q6.value,
+                    q7: quizForm.q7.value,
+                    q8: quizForm.q8.value,
+                    q9: quizForm.q9.value,
+                    q10: quizForm.q10.value
+                };
+                
+                // Подсчитываем правильные ответы
+                let score = 0;
+                for (const question in answers) {
+                    if (answers[question] === 'a') {
+                        score++;
+                    }
+                }
+                
+                // Выводим результаты
+                alert(`Вы ответили правильно на ${score} из 10 вопросов.`);
+            };
+        }
+        window.onload = processQuiz;
+    </script>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="#">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="#">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+  <form id="quizForm">
+    <h2>Вопрос 1: Что такое замыкание (closure) в JavaScript?</h2>
+    <p>Выберите наиболее подходящий ответ:</p>
+    <input type="radio" name="q1" value="a"> Функция внутри другой функции, которая имеет доступ к переменным внешней функции<br>
+    <input type="radio" name="q1" value="b"> Это процесс, при котором переменные уничтожаются после выполнения функции<br>
+    <input type="radio" name="q1" value="c"> Замыкание - это способ создания анимации в JavaScript<br>
+
+    <h2>Вопрос 2: Что такое DOM?</h2>
+    <p>Выберите наиболее подходящий ответ:</p>
+    <input type="radio" name="q2" value="a"> Document Object Model - это стандартный для JavaScript API для работы с HTML и XML документами<br>
+    <input type="radio" name="q2" value="b"> Это объектная модель, используемая для создания анимаций в браузере<br>
+    <input type="radio" name="q2" value="c"> Это методология программирования на JavaScript<br>
+
+    <h2>Вопрос 3: Что такое встроенные методы в JavaScript?</h2>
+    <input type="radio" name="q3" value="a"> Методы, встроенные в язык JavaScript для работы с различными типами данных<br>
+    <input type="radio" name="q3" value="b"> Методы, которые добавляются разработчиком для расширения функциональности языка<br>
+    <input type="radio" name="q3" value="c"> Методы, встроенные в браузер для работы с HTML документами<br>
+
+    <h2>Вопрос 4: Что делает метод 'addEventListener' в JavaScript?</h2>
+    <input type="radio" name="q4" value="a"> Добавляет новый HTML элемент на веб-страницу<br>
+    <input type="radio" name="q4" value="b"> Позволяет добавлять обработчики событий к HTML элементам<br>
+    <input type="radio" name="q4" value="c"> Удаляет HTML элемент с веб-страницы<br>
+
+    <h2>Вопрос 5: Как получить количество элементов в массиве в JavaScript?</h2>
+    <input type="radio" name="q5" value="a"> Используя метод count()<br>
+    <input type="radio" name="q5" value="b"> Используя свойство length<br>
+    <input type="radio" name="q5" value="c"> Используя метод size()<br>
+
+    <h2>Вопрос 6: Что такое стрелочные функции в JavaScript?</h2>
+    <input type="radio" name="q6" value="a"> Это функции, которые используются для анимации в браузере<br>
+    <input type="radio" name="q6" value="b"> Это краткая форма записи функций, введённая в ES6<br>
+    <input type="radio" name="q6" value="c"> Это функции, которые имеют доступ к переменным внешней функции<br>
+
+    <h2>Вопрос 7: Что такое 'use strict' в JavaScript?</h2>
+    <input type="radio" name="q7" value="a"> Это команда для обработки ошибок строго<br>
+    <input type="radio" name="q7" value="b"> Это синтаксический сахар для создания классов<br>
+    <input type="radio" name="q7" value="c"> Это директива, которая заставляет код выполняться в строгом режиме<br>
+
+    <h2>Вопрос 8: Что такое 'async' и 'await' в JavaScript?</h2>
+    <input type="radio" name="q8" value="a"> Это методы для работы с сетевыми запросами<br>
+    <input type="radio" name="q8" value="b"> Это ключевые слова для создания асинхронных функций и ожидания их выполнения<br>
+    <input type="radio" name="q8" value="c"> Это функции для работы с асинхронными событиями<br>
+
+    <h2>Вопрос 9: Как получить подстроку из строки в JavaScript?</h2>
+    <input type="radio" name="q9" value="a"> Используя метод subString()<br>
+    <input type="radio" name="q9" value="b"> Используя метод slice()<br>
+    <input type="radio" name="q9" value="c"> Используя метод substr()<br>
+
+    <h2>Вопрос 10: Как проверить, существует ли элемент с определенным ID в DOM?</h2>
+    <input type="radio" name="q10" value="a"> Используя document.queryID()<br>
+    <input type="radio" name="q10" value="b"> Используя document.getElementById()<br>
+    <input type="radio" name="q10" value="c"> Используя document.hasElement()<br>
+
+    <br><br>
+    <input type="submit" value="Отправить">
+</form>
+</header>
+<div class="footer">
+  <footer>
+      <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+      <div class="footer-images">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-github"></i>
+      </div>
+  </footer>
+</div>
+</body>
+</html>

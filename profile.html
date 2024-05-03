@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSM</title>
+        <link rel="stylesheet" href="css/index light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    </head>
+<body>
+    <header class="header">
+    <div id="navbar">
+        <div id="navbar">
+            <div class="logo">
+                <i class="fa fa-cube"></i>
+                <div class="logo-text">JSM</div>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="book.html">Учебник</a></li>
+            <li><a href="test.html">Тест</a>
+                <ul class="submenu">
+                    <li><a href="test-easy.html">Легкий</a></li>
+                    <li><a href="test-medium.html">Средний</a></li>
+                    <li><a href="test-hard.html">Сложный</a></li>
+                </ul>
+            </li>
+            <li><a href="project.html">О нас</a>
+                <ul class="submenu">
+                    <li><a href="map.html">Филиалы</a></li>
+                    <li><a href="#">Команда</a></li>
+                    <li><a href="Comments.html">Отзывы</a></li>
+                </ul>
+            </li>
+            <li><a href="profile.html">Профиль</a></li>
+            <a href="#"><i class="far fa-moon"></i></a>
+        </ul>
+        <a href="#"><i class="fas fa-bars"></i></a>
+    </div>
+<div class="log-form" id="loginForm">
+    <h2>Введите логин и пароль:</h2>
+    <form id="credentialsForm">
+      <input type="text" id="login" placeholder="Логин" required><br>
+      <input type="password" id="password" placeholder="Пароль" required><br>
+      <button type="submit">Войти</button>
+    </form>
+  </div>
+
+  <div class="secretword" style="display: none;">
+    <h2>Введите секретное слово:</h2>
+    <form id="secretWordInputForm">
+      <input type="text" id="secretWordInput" placeholder="Секретное слово" required><br>
+      <button type="submit">Показать данные</button>
+    </form>
+  </div>
+
+  <div class="secret-data" id="secretData" style="display: none;">
+    <h2>Секретные данные:</h2>
+    <p id="loginData"></p>
+    <p id="passwordData"></p>
+    <p id="dateData"></p>
+  </div>
+    </header>
+    <div class="footer">
+      <footer>
+          <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+          <div class="footer-images">
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-github"></i>
+          </div>
+      </footer>
+  </div>
+  <script>
+    $(document).ready(function(){
+            $.click(function(){
+                // Показываем или скрываем подменю
+                $('.submenu').toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            // Обработчик события клика по иконке
+            $('.fa-moon').click(function(){
+                // Проверяем текущую тему
+                var currentTheme = $('#theme').attr('href');
+                // Если текущая тема - светлая, переключаем на темную и наоборот
+                if(currentTheme == 'css/index light.css'){
+                    $('#theme').attr('href', 'css/index dark.css');
+                } else {
+                    $('#theme').attr('href', 'css/index light.css');
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.fa-bars').click(function(){
+                $('#navbar ul').toggle();
+            });
+        });
+
+    document.getElementById('credentialsForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var login = document.getElementById('login').value;
+      var password = document.getElementById('password').value;
+
+      // Сохранение логина и пароля в cookie
+      document.cookie = `login=${login}`;
+      document.cookie = `password=${password}`;
+
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('secretWordForm').style.display = 'block';
+    });
+
+    document.getElementById('secretWordInputForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var secretWord = document.getElementById('secretWordInput').value;
+
+      // Проверка корректности секретного слова
+      if (secretWord === 'POOP') {
+        // Получение логина и пароля из cookie
+        var login = getCookie('login');
+        var password = getCookie('password');
+
+        // Вывод данных
+        document.getElementById('loginData').innerText = `Логин: ${login}`;
+        document.getElementById('passwordData').innerText = `Пароль: ${password}`;
+
+        // Получение текущей даты
+        var currentDate = new Date();
+        var dateString = currentDate.toLocaleDateString();
+
+        // Вывод текущей даты
+        document.getElementById('dateData').innerText = `Дата: ${dateString}`;
+
+        document.getElementById('secretWordForm').style.display = 'none';
+        document.getElementById('secretData').style.display = 'block';
+      } else {
+        alert('Неправильное секретное слово!');
+      }
+    });
+
+    // Функция для получения значения cookie по имени
+    function getCookie(name) {
+      var matches = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+  </script>
+</body>
+</html>

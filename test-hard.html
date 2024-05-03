@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/test-easy_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <title>JavaScript Сложный тест</title>
+    <script>
+      $(document).ready(function(){
+      $.click(function(){
+          // Показываем или скрываем подменю
+          $('.submenu').toggle();
+      });
+  });
+  
+  $(document).ready(function(){
+      // Обработчик события клика по иконке
+      $('.fa-moon').click(function(){
+          // Проверяем текущую тему
+          var currentTheme = $('#theme').attr('href');
+          // Если текущая тема - светлая, переключаем на темную и наоборот
+          if(currentTheme == 'css/test-easy_light.css'){
+              $('#theme').attr('href', 'css/test-easy_dark.css');
+          } else {
+              $('#theme').attr('href', 'css/test-easy_light.css');
+          }
+      });
+  });
+  
+  $(document).ready(function(){
+      $('.fa-bars').click(function(){
+          $('#navbar ul').toggle();
+      });
+  });
+  function processQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            quizForm.onsubmit = function(event) {
+                event.preventDefault();
+                
+                // Считываем ответы пользователя
+                const answers = {
+                    q1: quizForm.q1.value,
+                    q2: quizForm.q2.value,
+                    q3: quizForm.q3.value,
+                    q4: quizForm.q4.value,
+                    q5: quizForm.q5.value,
+                    q6: quizForm.q6.value,
+                    q7: quizForm.q7.value,
+                    q8: quizForm.q8.value,
+                    q9: quizForm.q9.value,
+                    q10: quizForm.q10.value
+                };
+                
+                // Подсчитываем правильные ответы
+                let score = 0;
+                for (const question in answers) {
+                    if (answers[question] === 'b') {
+                        score++;
+                    }
+                }
+                
+                // Выводим результаты
+                alert(`Вы ответили правильно на ${score} из 10 вопросов.`);
+            };
+        }
+        window.onload = processQuiz;
+    </script>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="#">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="#">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+  <form id="quizForm">
+    <h2>Вопрос 1: Что такое Event Loop в JavaScript?</h2>
+    <p>Выберите наиболее подходящий ответ:</p>
+    <input type="radio" name="q1" value="a"> Это часть браузера, которая отвечает за отображение веб-страницы<br>
+    <input type="radio" name="q1" value="b"> Это механизм, который позволяет JavaScript выполнять асинхронный код и обрабатывать события<br>
+    <input type="radio" name="q1" value="c"> Это способ обработки исключений в JavaScript<br>
+
+    <h2>Вопрос 2: Что такое всплытие событий (event bubbling) в JavaScript?</h2>
+    <p>Выберите наиболее подходящий ответ:</p>
+    <input type="radio" name="q2" value="a"> Это процесс, при котором событие сначала обрабатывается на самом вложенном элементе, а затем поднимается вверх по иерархии DOM<br>
+    <input type="radio" name="q2" value="b"> Это метод, который используется для анимации элементов на веб-странице<br>
+    <input type="radio" name="q2" value="c"> Это процесс, при котором событие обрабатывается только на самом вложенном элементе, без всплытия к родительским элементам<br>
+
+    <h2>Вопрос 3: Что такое промисы (promises) в JavaScript?</h2>
+    <input type="radio" name="q3" value="a"> Промисы используются для работы с асинхронными операциями и представляют собой объекты, которые могут быть в состоянии ожидания, выполнения или отклонения<br>
+    <input type="radio" name="q3" value="b"> Промисы используются для проверки типов данных в JavaScript<br>
+    <input type="radio" name="q3" value="c"> Промисы используются для создания анимаций на веб-странице<br>
+
+    <h2>Вопрос 4: Как можно остановить всплытие события в JavaScript?</h2>
+    <input type="radio" name="q4" value="a"> Используя метод stopPropagation()<br>
+    <input type="radio" name="q4" value="b"> Используя метод preventDefault()<br>
+    <input type="radio" name="q4" value="c"> Используя метод cancelBubble()<br>
+
+    <h2>Вопрос 5: Какой метод используется для удаления элемента из массива в JavaScript?</h2>
+    <input type="radio" name="q5" value="a"> removeElement()<br>
+    <input type="radio" name="q5" value="b"> deleteElement()<br>
+    <input type="radio" name="q5" value="c"> splice()<br>
+
+    <h2>Вопрос 6: Что такое CORS (Cross-Origin Resource Sharing) в JavaScript?</h2>
+    <input type="radio" name="q6" value="a"> Это метод для создания кросс-браузерных анимаций<br>
+    <input type="radio" name="q6" value="b"> Это политика безопасности, которая определяет, как браузеры взаимодействуют с ресурсами на других доменах<br>
+    <input type="radio" name="q6" value="c"> Это метод для передачи данных между сервером и клиентом<br>
+
+    <h2>Вопрос 7: Каким образом можно создать объект в JavaScript?</h2>
+    <input type="radio" name="q7" value="a"> Используя функцию create()<br>
+    <input type="radio" name="q7" value="b"> Используя литерал объекта {}<br>
+    <input type="radio" name="q7" value="c"> Используя метод new Object()<br>
+
+    <h2>Вопрос 8: Что такое JSON (JavaScript Object Notation)?</h2>
+    <input type="radio" name="q8" value="a"> Это новый метод для работы с объектами в JavaScript<br>
+    <input type="radio" name="q8" value="b"> Это формат для обмена данными, основанный на подмножестве языка JavaScript<br>
+    <input type="radio" name="q8" value="c"> Это новая модель объектов в JavaScript<br>
+
+    <h2>Вопрос 9: Что такое деструктуризация объектов в JavaScript?</h2>
+    <input type="radio" name="q9" value="a"> Это метод для удаления свойств из объекта<br>
+    <input type="radio" name="q9" value="b"> Это метод для создания нового объекта на основе существующего<br>
+    <input type="radio" name="q9" value="c"> Это способ извлечения свойств из объекта и присваивания их переменным<br>
+
+    <h2>Вопрос 10: Как можно преобразовать строку в число в JavaScript?</h2>
+    <input type="radio" name="q10" value="a"> Используя метод convertNumber()<br>
+    <input type="radio" name="q10" value="b"> Используя метод toNumber()<br>
+    <input type="radio" name="q10" value="c"> Используя функцию parseInt()<br>
+
+    <br><br>
+    <input type="submit" value="Отправить">
+</form>
+</header>
+<div class="footer">
+  <footer>
+      <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+      <div class="footer-images">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-github"></i>
+      </div>
+  </footer>
+</div>
+</body>
+</html>

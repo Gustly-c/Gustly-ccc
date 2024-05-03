@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/book_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <title>Учебник по JavaScript</title>
+</head>
+<body>
+    <header class="header">
+        <div id="navbar">
+          <div id="navbar">
+              <div class="logo">
+                  <i class="fa fa-cube"></i>
+                  <div class="logo-text">JSM</div>
+              </div>
+          </div>
+          <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="book.html">Учебник</a></li>
+              <li><a href="test.html">Тест</a>
+                  <ul class="submenu">
+                      <li><a href="test-easy.html">Легкий</a></li>
+                      <li><a href="test-medium.html">Средний</a></li>
+                      <li><a href="test-hard.html">Сложный</a></li>
+                  </ul>
+              </li>
+              <li><a href="project.html">О нас</a>
+                  <ul class="submenu">
+                      <li><a href="map.html">Филиалы</a></li>
+                      <li><a href="#">Команда</a></li>
+                      <li><a href="Comments.html">Отзывы</a></li>
+                  </ul>
+              </li>
+              <li><a href="personal account.html">Профиль</a></li>
+              <a href="#"><i class="far fa-moon"></i></a>
+          </ul>
+          <a href="#"><i class="fas fa-bars"></i></a>
+      </div>
+      <section id="introduction">
+  <input type="checkbox" id="introduction-checkbox">
+    <a for="introduction-checkbox" href="intro.html">Введение</a>
+    <div>В данной секции представлено введение в изучение основ программирования. Здесь вы найдете обзор основных концепций и терминов, необходимых для понимания работы программ и их создания.</div>
+    </section>
+  <section id="basics" >
+    <input type="checkbox" id="basics-checkbox">
+    <a for="basics-checkbox" href="basic.html">Основы</a>
+    <div>Секция "Основы" охватывает фундаментальные принципы программирования. В ней рассматриваются базовые структуры данных, операторы и управляющие конструкции, необходимые для начала разработки программ.</div>
+    </section>
+    <section id="variables">
+    <input type="checkbox" id="variables-checkbox">
+    <a for="variables-checkbox" href="variables.html">Переменные</a>
+    <div>В этой секции вы найдете информацию о переменных и их роли в программировании. Узнаете, как создавать, инициализировать и использовать переменные для хранения данных в вашем коде.</div>
+    </section>
+    <section id="functions">
+    <input type="checkbox" id="functions-checkbox">
+    <a for="functions-checkbox" href="function.html">Функции</a>
+    <div>Секция "Функции" посвящена концепции функций в программировании. Вы узнаете, как определять функции, передавать аргументы и возвращать значения, а также как они помогают структурировать код.</div>
+    </section>
+    <section id="objects">
+    <input type="checkbox" id="objects-checkbox">
+    <a for="objects-checkbox" href="objects.html">Объекты</a>
+    <div>Здесь представлена информация об объектно-ориентированном программировании и работе с объектами в коде. Узнаете, как создавать объекты, определять их свойства и методы, а также как использовать наследование для повторного использования кода.</div>
+   </section>
+   <section id="arrays">
+    <input type="checkbox" id="arrays-checkbox">
+     <a for="arrays-checkbox" href="arrays.html">Массивы</a>
+     <div>Секция "Массивы" посвящена структуре данных, предназначенной для хранения упорядоченных коллекций элементов. Вы узнаете, как создавать массивы, добавлять и удалять элементы, а также основные методы работы с массивами.</div>
+     </section>
+    </header>
+    <div class="footer">
+      <footer>
+          <p>&copy; 2024 Все права защищены.Выполнил студент группы ИС-22: Кенесов Мадияр </p>
+          <div class="footer-images">
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-github"></i>
+          </div>
+      </footer>
+  </div>
+ <script>
+  $(document).ready(function(){
+    $.click(function(){
+        // Показываем или скрываем подменю
+        $('.submenu').toggle();
+    });
+});
+
+$(document).ready(function(){
+    // Обработчик события клика по иконке
+    $('.fa-moon').click(function(){
+        // Проверяем текущую тему
+        var currentTheme = $('#theme').attr('href');
+        // Если текущая тема - светлая, переключаем на темную и наоборот
+        if(currentTheme == 'css/book_light.css'){
+            $('#theme').attr('href', 'css/book_dark.css');
+        } else {
+            $('#theme').attr('href', 'css/book_light.css');
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('.fa-bars').click(function(){
+        $('#navbar ul').toggle();
+    });
+});
+</script> 
+</body>
+</html>

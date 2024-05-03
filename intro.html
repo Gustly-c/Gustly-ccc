@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/intro_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<title>JavaScript Tutorial - Введение</title>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="map.html">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="Comments.html">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+<h1>Введение</h1>
+<p>JavaScript (JS) - это высокоуровневый язык программирования, который широко используется в веб-разработке для создания интерактивных элементов и динамических веб-сайтов. Современные веб-приложения неизменно включают в себя JavaScript для обеспечения пользовательского взаимодействия и динамической функциональности.</p>
+
+<h2>Зачем изучать JavaScript?</h2>
+<p>Изучение JavaScript имеет ряд преимуществ:</p>
+<ul>
+  <li><strong>Интерактивность:</strong> JavaScript позволяет создавать динамические и интерактивные элементы, такие как анимации, валидация форм, динамическое обновление содержимого страницы и многое другое.</li>
+  <li><strong>Клиент-серверное взаимодействие:</strong> JavaScript позволяет взаимодействовать с сервером без необходимости перезагрузки всей страницы, благодаря технологии AJAX (Asynchronous JavaScript and XML).</li>
+  <li><strong>Поддержка всех современных браузеров:</strong> JavaScript является одним из самых широко поддерживаемых языков программирования и работает во всех современных веб-браузерах.</li>
+  <li><strong>Широкий спектр применения:</strong> JavaScript используется не только на веб-страницах, но также в разработке мобильных приложений, игр, десктопных приложений и даже во встраиваемых системах.</li>
+</ul>
+
+<h2>История JavaScript</h2>
+<p>JavaScript был создан Бренданом Эйхом в 1995 году, когда он работал в компании Netscape Communications Corporation. Изначально он назывался LiveScript и предназначался для добавления интерактивных возможностей на веб-страницы. Позже его переименовали в JavaScript для капитализации на популярности языка Java. В 1997 году JavaScript был стандартизирован под названием ECMAScript.</p>
+</header>
+<!-- Навигационные ссылки -->
+<nav>
+    <a href="index.html">На главную</a>
+    <a href="basic.html" class="next-page">Следующая тема: Основы</a>
+  </nav>
+  <div class="footer">
+    <footer>
+        <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+        <div class="footer-images">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-github"></i>
+        </div>
+    </footer>
+</div>
+<script>
+  $(document).ready(function(){
+    $.click(function(){
+        // Показываем или скрываем подменю
+        $('.submenu').toggle();
+    });
+});
+
+$(document).ready(function(){
+    // Обработчик события клика по иконке
+    $('.fa-moon').click(function(){
+        // Проверяем текущую тему
+        var currentTheme = $('#theme').attr('href');
+        // Если текущая тема - светлая, переключаем на темную и наоборот
+        if(currentTheme == 'css/intro_light.css'){
+            $('#theme').attr('href', 'css/intro_dark.css');
+        } else {
+            $('#theme').attr('href', 'css/intro_light.css');
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('.fa-bars').click(function(){
+        $('#navbar ul').toggle();
+    });
+});
+</script>
+</body>
+</html>

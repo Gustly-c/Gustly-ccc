@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/intro_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<title>О проекте</title>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="map.html">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="Comments.html">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+  <div class="content">
+    <h1>О проекте</h1>
+    <p>Меня зовут Кенесов Мадияр, и я разработал этот проект, чтобы помочь начинающим программистам изучить JavaScript. Этот проект включает в себя учебник, который покрывает основы JavaScript, тесты разного уровня сложности для проверки знаний, а также раздел с отзывами пользователей.</p>
+    <p>Цель этого проекта - сделать изучение JavaScript интересным и доступным для всех. Мы стремимся предоставить всю необходимую информацию и ресурсы для того, чтобы каждый мог освоить этот мощный язык программирования.</p>
+  </div>
+  </header>
+  <div class="footer">
+    <footer>
+        <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+        <div class="footer-images">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-github"></i>
+        </div>
+    </footer>
+</div>
+<script>
+  $(document).ready(function(){
+    $.click(function(){
+        // Показываем или скрываем подменю
+        $('.submenu').toggle();
+    });
+});
+
+$(document).ready(function(){
+    // Обработчик события клика по иконке
+    $('.fa-moon').click(function(){
+        // Проверяем текущую тему
+        var currentTheme = $('#theme').attr('href');
+        // Если текущая тема - светлая, переключаем на темную и наоборот
+        if(currentTheme == 'css/intro_light.css'){
+            $('#theme').attr('href', 'css/intro_dark.css');
+        } else {
+            $('#theme').attr('href', 'css/intro_light.css');
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('.fa-bars').click(function(){
+        $('#navbar ul').toggle();
+    });
+});
+</script>
+</body>
+</html>

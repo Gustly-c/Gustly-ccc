@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/test_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <title>JavaScript Test</title>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="#">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="#">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+  <main>
+    <section id="test">
+      <h2>Тест на знание JavaScript</h2>
+      <nav>
+      <ul>
+        <li><a href="test-easy.html">Лёгкий</a></li>
+        <li><a href="test-medium.html">Средний</a></li>
+        <li><a href="test-hard.html">Сложный</a></li>
+      </ul>
+      </nav>
+    </section>
+    <section id="about">
+      <h2>О проекте</h2>
+      <h3>История проекта</h3>
+      <p>Проект был разработан в рамках курсовой работы по дисциплине "Протоколы и интерфейсы".</p>
+      <h3>Контакты</h3>
+      <p>Email: <a href="mailto:madiyar.k@mail.ru">madiyar.k@mail.ru</a></p>
+    </section>
+  </main>
+  </header>
+  <div class="footer">
+    <footer>
+        <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+        <div class="footer-images">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-github"></i>
+        </div>
+    </footer>
+</div>
+  <script>
+    $(document).ready(function(){
+      $.click(function(){
+          // Показываем или скрываем подменю
+          $('.submenu').toggle();
+      });
+  });
+  
+  $(document).ready(function(){
+      // Обработчик события клика по иконке
+      $('.fa-moon').click(function(){
+          // Проверяем текущую тему
+          var currentTheme = $('#theme').attr('href');
+          // Если текущая тема - светлая, переключаем на темную и наоборот
+          if(currentTheme == 'css/test_light.css'){
+              $('#theme').attr('href', 'css/test_dark.css');
+          } else {
+              $('#theme').attr('href', 'css/test_light.css');
+          }
+      });
+  });
+  
+  $(document).ready(function(){
+      $('.fa-bars').click(function(){
+          $('#navbar ul').toggle();
+      });
+  });
+  </script>
+  </body>
+</html>

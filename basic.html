@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/intro_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<title>JavaScript Tutorial - Основы</title>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="map.html">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="Comments.html">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="personal account.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+  <div>Добро пожаловать в раздел "Основы JavaScript"! JavaScript - это мощный язык программирования, который широко используется для создания интерактивных веб-сайтов и веб-приложений. В этом разделе мы рассмотрим основы JavaScript, начиная с базовых концепций и заканчивая более продвинутыми темами.
+
+    Что такое JavaScript?
+    JavaScript - это высокоуровневый, интерпретируемый язык программирования, который добавляет динамическое поведение вашим веб-страницам. Он позволяет вам создавать интерактивные элементы, обрабатывать события пользователя, асинхронно обмениваться данными с сервером и многое другое.
+    
+    Основные концепции JavaScript
+    Переменные и типы данных: В JavaScript существует несколько типов данных, таких как числа, строки, логические значения и объекты. Переменные используются для хранения и манипулирования данными в вашем коде.
+    Операторы: JavaScript поддерживает широкий спектр операторов, включая арифметические, логические, сравнения и присваивания.
+    Условные операторы и циклы: Условные операторы, такие как if-else и switch, позволяют вам выполнять определенные блоки кода в зависимости от условий. Циклы, такие как for и while, позволяют вам выполнять блоки кода многократно.
+    Функции: Функции в JavaScript позволяют вам организовывать код в повторно используемые блоки, что делает ваш код более читаемым и поддерживаемым.
+    Объекты и массивы: Объекты и массивы являются основными структурами данных в JavaScript. Они позволяют вам организовывать и хранить данные в вашем приложении.
+    Преимущества JavaScript
+    Универсальность: JavaScript может быть использован как на стороне клиента (в браузере), так и на стороне сервера (с помощью Node.js).
+    Динамическое обновление страниц: JavaScript позволяет обновлять содержимое веб-страницы без необходимости перезагрузки всей страницы.
+    Большое сообщество и экосистема: JavaScript имеет огромное сообщество разработчиков и множество библиотек и фреймворков, которые облегчают разработку веб-приложений.
+    JavaScript - это невероятно мощный инструмент, который открывает множество возможностей для создания динамических и интерактивных веб-приложений. Надеемся, что этот раздел поможет вам понять основы JavaScript и вдохновит вас на дальнейшее изучение этого удивительного языка программирования.</div>
+</header>
+
+<!-- Навигационные ссылки -->
+<nav>
+    <a href="index.html">На главную</a>
+    <a href="basic.html" class="next-page">Следующая тема: Основы</a>
+  </nav>
+  <div class="footer">
+    <footer>
+        <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+        <div class="footer-images">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-github"></i>
+        </div>
+    </footer>
+</div>
+<script>
+  $(document).ready(function(){
+    $.click(function(){
+        // Показываем или скрываем подменю
+        $('.submenu').toggle();
+    });
+});
+
+$(document).ready(function(){
+    // Обработчик события клика по иконке
+    $('.fa-moon').click(function(){
+        // Проверяем текущую тему
+        var currentTheme = $('#theme').attr('href');
+        // Если текущая тема - светлая, переключаем на темную и наоборот
+        if(currentTheme == 'css/intro_light.css'){
+            $('#theme').attr('href', 'css/intro_dark.css');
+        } else {
+            $('#theme').attr('href', 'css/intro_light.css');
+        }
+    });
+});
+
+$(document).ready(function(){
+    $('.fa-bars').click(function(){
+        $('#navbar ul').toggle();
+    });
+});
+</script>
+</body>
+</html>

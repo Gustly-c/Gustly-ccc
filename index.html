@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JSM</title>
+        <link rel="stylesheet" href="css/index light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    </head>
+<body>
+    <header class="header">
+    <div id="navbar">
+        <div id="navbar">
+            <div class="logo">
+                <i class="fa fa-cube"></i>
+                <div class="logo-text">JSM</div>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="book.html">Учебник</a></li>
+            <li><a href="test.html">Тест</a>
+                <ul class="submenu">
+                    <li><a href="test-easy.html">Легкий</a></li>
+                    <li><a href="test-medium.html">Средний</a></li>
+                    <li><a href="test-hard.html">Сложный</a></li>
+                </ul>
+            </li>
+            <li><a href="project.html">О нас</a>
+                <ul class="submenu">
+                    <li><a href="map.html">Филиалы</a></li>
+                    <li><a href="team.html">Команда</a></li>
+                    <li><a href="Comments.html">Отзывы</a></li>
+                </ul>
+            </li>
+            <li><a href="profile.html">Профиль</a></li>
+            <a href="#"><i class="far fa-moon"></i></a>
+        </ul>
+        <a href="#"><i class="fas fa-bars"></i></a>
+    </div>
+
+    <div class="slider">
+        <img class="slide slide1" src="img/slide 1.png"></img>
+        <img class="slide slide2" src="img/slide 2.png"></img>
+        <img class="slide slide3" src="img/slide 3.png"></img>
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+    <h2>Информация о JavaScript</h2>
+    <table>
+        <tr>
+            <th>Характеристика</th>
+            <th>Значение</th>
+        </tr>
+        <tr>
+            <td>Год создания</td>
+            <td>1995</td>
+        </tr>
+        <tr>
+            <td>Тип</td>
+            <td>Язык программирования</td>
+        </tr>
+        <tr>
+            <td>Создатель</td>
+            <td>Брендан Эйх</td>
+        </tr>
+        <tr>
+            <td>Парадигмы</td>
+            <td>Объектно-ориентированный, функциональный</td>
+        </tr>
+        <tr>
+            <td>Прототип</td>
+            <td>Прототипное наследование</td>
+        </tr>
+    </table>
+    <body>
+        <canvas id="jsPopularityChart"></canvas>
+    <script>
+         let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function moveSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+
+        let slideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 10000);
+
+        $(document).ready(function(){
+            $.click(function(){
+                // Показываем или скрываем подменю
+                $('.submenu').toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            // Обработчик события клика по иконке
+            $('.fa-moon').click(function(){
+                // Проверяем текущую тему
+                var currentTheme = $('#theme').attr('href');
+                // Если текущая тема - светлая, переключаем на темную и наоборот
+                if(currentTheme == 'css/index light.css'){
+                    $('#theme').attr('href', 'css/index dark.css');
+                } else {
+                    $('#theme').attr('href', 'css/index light.css');
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.fa-bars').click(function(){
+                $('#navbar ul').toggle();
+            });
+        });
+
+         // Данные для графика (годы и популярность JavaScript)
+         const years = [2017, 2018, 2019, 2020, 2021, 2022];
+        const users = [1500000, 2000000, 2500000, 3000000, 3500000, 4000000];
+
+        // Создаем объект графика
+        const ctx = document.getElementById('jsPopularityChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Популярность языка Javascript',
+                    data: users,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    
+ 
+    
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 Все права защищены. Выполнил проект студент группы ИС-22: Кенесов Мадияр</p>
+            <div class="footer-images">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-github"></i>
+            </div>
+        </footer>
+    </div>
+    </header>
+</body>
+</html>

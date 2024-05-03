@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branches</title>
+    <style>
+        #tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <img id="map" src="img/novaya-karta-kazahstana-1440x810.jpg" width="700px" height="auto" alt="Map" usemap="#image-map">
+    
+        <map name="image-map">
+            <area shape="rect" coords="374,20,402,47" href="#1-rect" alt="Город: Петропавловск, Адрес: Пушкина 87, Номер: +7 705 974 55 69, Популярные языки программирования: Java, JavaScript, Python, C#, Платформа: Windows, MacOS">
+            <area shape="rect" coords="412,114,427,134" href="#2-rect" alt="Город: Астана, Адрес: Ленина 65, Номер: +7 775 874 54 74, Популярные языки программирования: JavaScript, Python, Ruby, C++, Платформа: Linux, MacOS">
+            <area shape="rect" coords="519,296,542,316" href="#3-rect" alt="Город: Алматы, Адрес: Кирова 98, Номер: +7 777 365 75 12, Популярные языки программирования: JavaScript, Python, C++, PHP, Платформа: Linux, Windows">
+            <area shape="rect" coords="94,192,113,207" href="#4-rect" alt="Город: Атырау, Адрес: Степная 48, Номер: +7 771 458 85 96, Популярные языки программирования: JavaScript, C#, Java, C++, Платформа: Linux, Windows">
+            <area shape="rect" coords="392,333,408,349" href="#5-rect" alt="Город: Шымкент, Адрес: Курмангазы 49, Номер: +7 776 774 95 19, Популярные языки программирования: JavaScript, Python, Ruby, PHP, Платформа: Linux, Windows">
+        </map>
+
+        <div id="tooltip"></div>
+    </section>
+
+    <script>
+        const areas = document.querySelectorAll('area');
+        const tooltip = document.getElementById('tooltip');
+
+        areas.forEach(area => {
+            area.addEventListener('mouseover', function() {
+                const info = this.getAttribute('alt').split(', ');
+                let city, address, schedule, number, languages, platform;
+                info.forEach(item => {
+                    const [key, value] = item.split(': ');
+                    if (key === 'Город') city = value;
+                    if (key === 'Адрес') address = value;
+                    if (key === 'Номер') number = value;
+                    if (key === 'Популярные языки программирования') languages = value;
+                    if (key === 'Платформа') platform = value;
+                });
+                const coords = this.getBoundingClientRect();
+                tooltip.style.top = coords.top + 'px';
+                tooltip.style.left = coords.right + 'px';
+                tooltip.innerHTML = `<ul>
+                                        <li>Город: ${city}</li>
+                                        <li>Адрес: ${address}</li>
+                                        <li>Номер: ${number}</li>
+                                        <li>Популярные языки: ${languages}</li>
+                                        <li>Платформа: ${platform}</li>
+                                    </ul>`;
+                tooltip.style.display = 'block';
+            });
+
+            area.addEventListener('mouseout', function() {
+                tooltip.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

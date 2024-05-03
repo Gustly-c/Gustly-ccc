@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/test-easy_light.css" id="theme"> <!-- Подключаем начальную тему -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <title>JavaScript Лёгкий Тест</title>
+    <script>
+      $(document).ready(function(){
+      $.click(function(){
+          // Показываем или скрываем подменю
+          $('.submenu').toggle();
+      });
+  });
+  
+  $(document).ready(function(){
+      // Обработчик события клика по иконке
+      $('.fa-moon').click(function(){
+          // Проверяем текущую тему
+          var currentTheme = $('#theme').attr('href');
+          // Если текущая тема - светлая, переключаем на темную и наоборот
+          if(currentTheme == 'css/test-easy_light.css'){
+              $('#theme').attr('href', 'css/test-easy_dark.css');
+          } else {
+              $('#theme').attr('href', 'css/test-easy_light.css');
+          }
+      });
+  });
+  
+  $(document).ready(function(){
+      $('.fa-bars').click(function(){
+          $('#navbar ul').toggle();
+      });
+  });
+        function processQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            quizForm.onsubmit = function(event) {
+                event.preventDefault();
+                
+                // Считываем ответы пользователя
+                const answers = {
+                    q1: quizForm.q1.value,
+                    q2: quizForm.q2.value,
+                    q3: quizForm.q3.value,
+                    q4: quizForm.q4.value,
+                    q5: quizForm.q5.value,
+                    q6: quizForm.q6.value,
+                    q7: quizForm.q7.value,
+                    q8: quizForm.q8.value,
+                    q9: quizForm.q9.value,
+                    q10: quizForm.q10.value
+                };
+                
+                // Подсчитываем правильные ответы
+                let score = 0;
+                for (const question in answers) {
+                    if (answers[question] === 'b') {
+                        score++;
+                    }
+                }
+                
+                // Выводим результаты
+                alert(`Вы ответили правильно на ${score} из 10 вопросов.`);
+            };
+        }
+        window.onload = processQuiz;
+    </script>
+</head>
+<body>
+  <header class="header">
+    <div id="navbar">
+      <div id="navbar">
+          <div class="logo">
+              <i class="fa fa-cube"></i>
+              <div class="logo-text">JSM</div>
+          </div>
+      </div>
+      <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="book.html">Учебник</a></li>
+          <li><a href="test.html">Тест</a>
+              <ul class="submenu">
+                  <li><a href="test-easy.html">Легкий</a></li>
+                  <li><a href="test-medium.html">Средний</a></li>
+                  <li><a href="test-hard.html">Сложный</a></li>
+              </ul>
+          </li>
+          <li><a href="project.html">О нас</a>
+              <ul class="submenu">
+                  <li><a href="map.html">Филиалы</a></li>
+                  <li><a href="#">Команда</a></li>
+                  <li><a href="Comments.html">Отзывы</a></li>
+              </ul>
+          </li>
+          <li><a href="profile.html">Профиль</a></li>
+          <a href="#"><i class="far fa-moon"></i></a>
+      </ul>
+      <a href="#"><i class="fas fa-bars"></i></a>
+  </div>
+    <form id="quizForm">
+        <h2>Вопрос 1: Что выведет следующий код?</h2>
+        <p>console.log(typeof([]));</p>
+        <input type="radio" name="q1" value="a"> "array"<br>
+        <input type="radio" name="q1" value="b"> "object"<br>
+        <input type="radio" name="q1" value="c"> "undefined"<br>
+
+        <h2>Вопрос 2: Какой из следующих типов данных отсутствует в JavaScript?</h2>
+        <input type="radio" name="q2" value="a"> Boolean<br>
+        <input type="radio" name="q2" value="b"> Float<br>
+        <input type="radio" name="q2" value="c"> String<br>
+
+        <h2>Вопрос 3: Что делает оператор '===' в JavaScript?</h2>
+        <input type="radio" name="q3" value="a"> Сравнивает значения с преобразованием типов<br>
+        <input type="radio" name="q3" value="b"> Сравнивает значения без преобразования типов<br>
+        <input type="radio" name="q3" value="c"> Присваивает значение переменной<br>
+
+        <h2>Вопрос 4: Как получить случайное число в JavaScript в диапазоне от 0 до 1?</h2>
+        <input type="radio" name="q4" value="a"> Math.random()<br>
+        <input type="radio" name="q4" value="b"> Math.floor(Math.random())<br>
+        <input type="radio" name="q4" value="c"> random()<br>
+
+        <h2>Вопрос 5: Что делает оператор '||' в JavaScript?</h2>
+        <input type="radio" name="q5" value="a"> Оператор И<br>
+        <input type="radio" name="q5" value="b"> Оператор ИЛИ<br>
+        <input type="radio" name="q5" value="c"> Оператор НЕ<br>
+
+        <h2>Вопрос 6: Как проверить, является ли переменная массивом в JavaScript?</h2>
+        <input type="radio" name="q6" value="a"> Используя typeof<br>
+        <input type="radio" name="q6" value="b"> Используя Array.isArray()<br>
+        <input type="radio" name="q6" value="c"> Используя isArray()<br>
+
+        <h2>Вопрос 7: Как объявить переменную в JavaScript?</h2>
+        <input type="radio" name="q7" value="a"> var myVar;<br>
+        <input type="radio" name="q7" value="b"> let myVar;<br>
+        <input type="radio" name="q7" value="c"> const myVar;<br>
+
+        <h2>Вопрос 8: Что выведет следующий код: console.log(3 + '3')?</h2>
+        <input type="radio" name="q8" value="a"> 33<br>
+        <input type="radio" name="q8" value="b"> 6<br>
+        <input type="radio" name="q8" value="c"> '33'<br>
+
+        <h2>Вопрос 9: Что такое NaN в JavaScript?</h2>
+        <input type="radio" name="q9" value="a"> Новый язык программирования<br>
+        <input type="radio" name="q9" value="b"> Ошибка, означающая "Не число"<br>
+        <input type="radio" name="q9" value="c"> Функция, возвращающая случайное число<br>
+
+        <h2>Вопрос 10: Что выведет следующий код: console.log('2' + 2)?</h2>
+        <input type="radio" name="q10" value="a"> 4<br>
+        <input type="radio" name="q10" value="b"> 22<br>
+        <input type="radio" name="q10" value="c"> '22'<br>
+
+        <br><br>
+        <input type="submit" value="Отправить">
+    </form>
+</header>
+<div class="footer">
+  <footer>
+      <p>&copy; 2024 Все права защищены. Выполнил студент группы ИС-22: Кенесов Мадияр</p>
+      <div class="footer-images">
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-github"></i>
+      </div>
+  </footer>
+</div>
+</body>
+</html>
