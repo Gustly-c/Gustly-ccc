@@ -209,6 +209,35 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.clients {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.review {
+  margin-bottom: 30px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.review-text p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review-text .author {
+  font-style: italic;
+  font-size: 14px;
+}
 
 /* Стили для подвала */
 .footer {
